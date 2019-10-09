@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.tree;
 
 /**
  * A binary tree is univalued if every node in the tree has the same value.

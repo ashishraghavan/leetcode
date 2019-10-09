@@ -1,6 +1,4 @@
-package com.leetcode.easy;
-
-import java.util.regex.Pattern;
+package com.leetcode.easy.strings;
 
 public class DefangingIPAddress {
 

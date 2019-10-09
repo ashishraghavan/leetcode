@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.strings;
 
 /**
  * You are given an array of strings words and a string chars.

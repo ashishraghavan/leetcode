@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.strings;
 
 /**
  * Given a string S, return the "reversed" string where all characters that are not a letter stay in the same place, and all letters reverse their positions.

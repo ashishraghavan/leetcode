@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.strings;
 
 public class ToLowerCase {
     public static void main(String[] args) {

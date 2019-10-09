@@ -1,6 +1,9 @@
-package com.leetcode.easy;
+package com.leetcode.easy.strings;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class UniqueNoOfOccurences {
     public static void main(String[] args) {

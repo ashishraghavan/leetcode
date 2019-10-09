@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.tree;
 
 /**
  * Note that TreeNode has already been created for us.
