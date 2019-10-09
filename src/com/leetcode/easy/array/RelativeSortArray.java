@@ -6,6 +6,7 @@ import java.util.*;
  * Given two arrays arr1 and arr2, the elements of arr2 are distinct, and all elements in arr2 are also in arr1.
  * <p>
  * Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2.  Elements that don't appear in arr2 should be placed at the end of arr1 in ascending order.
+ * TODO : Make this run faster. numberIndexList can be removed.
  */
 public class RelativeSortArray {
     public static void main(String[] args) {
@@ -19,6 +20,7 @@ public class RelativeSortArray {
         List<Integer> arr2List = new ArrayList<>(arr2.length);
         //all elements in arr1 not present in arr2
         List<Integer> arr1RemainingList = new ArrayList<>();
+        List<Integer> sortedList = new ArrayList<>();
         //Copy all elements of arr1 to a list
         for (int item : arr1) {
             arr1List.add(item);
@@ -31,27 +33,37 @@ public class RelativeSortArray {
         ListIterator<Integer> arr1Iterator = arr1List.listIterator();
         while (arr1Iterator.hasNext()) {
             Integer arr1Number = arr1Iterator.next();
-            if (!arr2List.contains(arr1Number)) {
+            if (arr2List.contains(arr1Number)) {
+                //update index list against number
+                List<Integer> indexList;
+                if (numberIndexList.containsKey(arr1Number)) {
+                    indexList = numberIndexList.get(arr1Number);
+                } else {
+                    //put in map with arr1Number -> index
+                    indexList = new ArrayList<>();
+                }
+                indexList.add(arr1Number);
+                numberIndexList.put(arr1Number, indexList);
+            } else {
                 arr1RemainingList.add(arr1Number);
                 arr1Iterator.remove();
             }
         }
         //arr1List now contains all elements present in arr2
         //arr1RemainingList contains all elements present in arr1 but not in arr2
-        System.out.println(arr1List);
-        System.out.println(arr1RemainingList);
-        return arr1;
+        for (Integer number : arr2List) {
+            if (numberIndexList.containsKey(number)) {
+                sortedList.addAll(numberIndexList.get(number));
+            }
+        }
+        Collections.sort(arr1RemainingList);
+        sortedList.addAll(arr1RemainingList);
+        int[] sortedArray = new int[sortedList.size()];
+        int count = 0;
+        for (Integer sortedNumber : sortedList) {
+            sortedArray[count++] = sortedNumber;
+        }
+        return sortedArray;
     }
 }
 
-/*while(arr1Iterator.hasNext()) {
-            Integer arr1Number = arr1Iterator.next();
-            if(arr2List.contains(arr1Number)) {
-                if(numberIndexList.containsKey(arr1Number)) {
-                    numberIndexList.get(arr1Number).add(arr1Iterator.)
-                }
-            } else {
-                arr1RemainingList.add(arr1Number);
-                arr1Iterator.remove();
-            }
-        }*/
