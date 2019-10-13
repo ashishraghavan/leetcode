@@ -1,6 +1,5 @@
 package com.leetcode.medium;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         System.out.println(lengthOfLongestSubstring("dvdf"));
     }
 
-    private static int lengthOfLongestSubstring(@NotNull String str) {
+    private static int lengthOfLongestSubstring(String str) {
         //For appending to build the longest substring. Will be cleared off after a repeated character is encountered.
         //A list which keeps track of characters in the longest substring that have been currently parsed.
         List<Character> characterTracker = new ArrayList<>();
