@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.linkedlist;
 
 
 /**
@@ -8,6 +8,12 @@ package com.leetcode.easy;
  */
 public class LinkedListMiddle {
     public static void main(String[] args) {
+        ListNode headNode = initializeList();
+        printListNodes(headNode);
+        System.out.println(middleNode(headNode).val);
+    }
+
+    protected static ListNode initializeList() {
         ListNode headNode = new ListNode(5);
         ListNode node2 = new ListNode(15);
         headNode.next = node2;
@@ -26,8 +32,7 @@ public class LinkedListMiddle {
         ListNode node9 = new ListNode(50);
         node8.next = node9;
         node9.next = null;
-        printListNodes(headNode);
-        System.out.println(middleNode(headNode).val);
+        return headNode;
     }
 
     @SuppressWarnings("unused")
