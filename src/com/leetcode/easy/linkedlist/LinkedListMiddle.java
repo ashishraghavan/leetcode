@@ -1,6 +1,8 @@
 package com.leetcode.easy.linkedlist;
 
 
+import java.util.LinkedList;
+
 /**
  * Given a non-empty, singly linked list with head node head, return a middle node of linked list.
  *
@@ -33,6 +35,53 @@ public class LinkedListMiddle {
         node8.next = node9;
         node9.next = null;
         return headNode;
+    }
+
+    protected static ListNode initializeSecondList() {
+        ListNode headNode = new ListNode(5);
+        ListNode node2 = new ListNode(15);
+        headNode.next = node2;
+        ListNode node3 = new ListNode(20);
+        node2.next = node3;
+        ListNode node4 = new ListNode(25);
+        node3.next = node4;
+        ListNode node5 = new ListNode(30);
+        node4.next = node5;
+        ListNode node6 = new ListNode(35);
+        node5.next = node6;
+        ListNode node7 = new ListNode(40);
+        node6.next = node7;
+        ListNode node8 = new ListNode(45);
+        node7.next = node8;
+        ListNode node9 = new ListNode(50);
+        node8.next = node9;
+        node9.next = null;
+        return headNode;
+    }
+
+    protected static ListNode initializeListByArray(int[] arr) {
+        //start with head node.
+        if(arr.length == 0) {
+            return null;
+        }
+        //create the head node
+        ListNode head = new ListNode(arr[0]);
+        //we need to save the head node to return a reference to the head.
+        ListNode current = head;
+        for (int i=1;i<arr.length;i++) {
+            current.next = new ListNode(arr[i]);
+            current = current.next;
+        }
+        current.next = null;
+        //print the linked list once
+        ListNode node = head;
+        StringBuilder listBuilder = new StringBuilder();
+        while(node != null) {
+            listBuilder.append(node.val).append("->");
+            node = node.next;
+        }
+        System.out.println(listBuilder);
+        return head;
     }
 
     @SuppressWarnings("unused")

@@ -20,24 +20,7 @@ public class ReverseLinkedList extends LinkedListMiddle {
         //Get the next element in the linked list
         //if it is null, we have reached the end
         //and this will be the first element now.
-        ListNode reversedHead = head;
-        ListNode currentNode = head; //previous to current node.
-        ListNode temp = head;
-        //If we reach here, we have reached the end of
-        //the linked list.
-        // 5 15 20
-        //Before saying current.next = null, save the current and current.next
-        //temp will move forward
-        /*
-        *
-        * while
-        * ListNode temp = head; //5
-        *  ListNode tempNext = temp.next; //15
-        *  ListNode current = head.next; //15
-        *  current.next = temp; 15 -> 5
-        *
-        * */
-        //set head.next = null before returning
-        return temp;
+
+        return null;
     }
 }
