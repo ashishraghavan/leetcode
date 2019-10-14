@@ -38,13 +38,10 @@ public class MergeTwoSortedLists extends LinkedListMiddle {
                 //l1.val > l2.val
                 //->l2.val->l1.val->
                 //In place of l1, we need to set l2.
-                //save l1 | temp = [5] -> null
-                //create l2 node &&
-                //set l1 as newly created node l2.
-                ListNode l1Next = l1;
-                l1 = new ListNode(l2.val);
-                l1.next = l1Next;
-                l2 = l2.next;
+                //SAVE l1 | temp = [5] -> null
+                ListNode temp = l1;
+                ListNode element = new ListNode(l2.val);
+
             }
         }
         //If any of l1 or l2 is null.
