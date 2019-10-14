@@ -34,7 +34,7 @@ public class DeleteANode extends LinkedListMiddle {
     //so that previous.next = node.next;
     //you cannot create a new node!!!!
     static void deleteNode(ListNode node) {
-        //set current node to be the next node.
-        node = node.next;
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }
