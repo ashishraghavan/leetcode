@@ -10,6 +10,8 @@ package com.leetcode.easy.strings;
  * strings need to have equal count of both 0 and 1 and grouped together. THis
  * means 00 and 11 won't count. 10 or 01 are good because they contain one 0
  * and one 1 each.
+ *
+ * [UNSOLVED]
  */
 public class CountBinarySubStrings {
     public static void main(String[] args) {
