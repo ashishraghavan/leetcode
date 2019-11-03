@@ -16,6 +16,6 @@ public class RomanToInteger {
         charMap.put("V",5);
         charMap.put("L",50);
         charMap.put("D",500);
-        
+        return -1;
     }
 }
