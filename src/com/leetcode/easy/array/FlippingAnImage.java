@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy.array;
 
 @SuppressWarnings("ForLoopReplaceableByForEach")
 public class FlippingAnImage {

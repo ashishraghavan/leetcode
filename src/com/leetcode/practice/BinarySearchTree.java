@@ -11,6 +11,10 @@ public class BinarySearchTree {
         root.setRight(null);
     }
 
+    protected Node getRoot() {
+        return root;
+    }
+
     private BinarySearchTree(){}
 
     public void insertNode(int value) {
@@ -35,7 +39,7 @@ public class BinarySearchTree {
 
     }
 
-    private void searchAndInsert(Node node,int value) {
+    protected void searchAndInsert(Node node,int value) {
         Node parent = node;
         Node currentNode = node;
         while(currentNode != null) {
@@ -72,7 +76,7 @@ public class BinarySearchTree {
     private void preOrder(Node node) {
         if((node.getLeft() != null || node.getRight() != null) ||
                 (node.getLeft() == null && node.getRight() == null)) {
-            System.out.println(node.getValue());
+            System.out.print(node.getValue()+",");
         }
         if(node.getLeft() != null) {
             preOrder(node.getLeft());
