@@ -1,49 +1,47 @@
 package com.leetcode.easy.array;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Calendar.DAY_OF_WEEK;
-
+/**
+ * Given a date, return the corresponding day of the week for that date.
+ *
+ * The input is given as three integers representing the day, month and year respectively.
+ *
+ * Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
+ *
+ *
+ */
 public class DayOfTheWeek {
     public static void main(String[] args) {
-        System.out.println(dayOfTheWeek(13,6,1987));
+        System.out.println(dayOfTheWeek(11,8,1987));//Saturday
     }
 
+    //Jan 1st 1971 is Friday
     static String dayOfTheWeek(int day, int month, int year) {
-        String[] daysStrArray = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        int noOfFebDays = isLeapYear(year)?29:28;
+        int[] monthDayArray = new int[]{31,noOfFebDays,31,30,31,30,31,31,30,31,30,31};
+        String[] daysStrArray = new String[]{"Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};
         boolean isLeapYear  = isLeapYear(year);
-        int days = isLeapYear ? 366 : 365;
-        int weekCount = days/7;
-        Map<Integer,Integer> monthDay = new HashMap<>();
-        monthDay.put(1,31);
-        monthDay.put(2,isLeapYear ? 29 : 28);
-        monthDay.put(3,31);
-        monthDay.put(4,30);
-        monthDay.put(5,31);
-        monthDay.put(6,30);
-        monthDay.put(7,31);
-        monthDay.put(8,31);
-        monthDay.put(9,30);
-        monthDay.put(10,31);
-        monthDay.put(11,30);
-        monthDay.put(12,31);
-
         int dayCount = 0;
-        for(int i=1;i<month;i++) {
-            dayCount += monthDay.get(i);
+        for(int i=1971;i<year;i++) {
+            if(isLeapYear) {
+                dayCount += 366;
+            } else {
+                dayCount += 365;
+            }
         }
-        dayCount += day;
-        int week = dayCount % 7;
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year,month,day);
-        int dayOfWeek = calendar.get(DAY_OF_WEEK);
-        return "";
+        for(int i=0;i<month-1;i++) {
+            dayCount += monthDayArray[i];
+        }
+        //day count
+        dayCount += day-1;
+        int arrIndex = dayCount % 7;
+        return daysStrArray[arrIndex];
     }
 
     static boolean isLeapYear(int year) {
-        int lastTwo = year % 100;
-        return (lastTwo % 4 == 0);
+        if (year % 400 == 0)
+            return true;
+        if (year % 100 == 0)
+            return false;
+        return year % 4 == 0;
     }
 }
