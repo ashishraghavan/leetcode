@@ -9,10 +9,9 @@ import java.util.Arrays;
  * Now, given string arrays queries and words, return an integer array answer,
  * where each answer[i] is the number of words such that f(queries[i]) < f(W), where W is a word in words.
  */
-//Arrays.toString(numSmallerByFrequency(new String[]{"bbb","cc"},new String[]{"a","aa","aaa","aaaa"})))
 public class CompareStringsByFrequencyOfSmallestCharacter {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(numSmallerByFrequency(new String[]{"cbd"},new String[]{"zaaaz"})));
+        System.out.println(Arrays.toString(numSmallerByFrequency(new String[]{"bbb","cc"},new String[]{"a","aa","aaa","aaaa"})));
     }
 
     static int[] numSmallerByFrequency(String[] queries, String[] words) {
@@ -20,16 +19,11 @@ public class CompareStringsByFrequencyOfSmallestCharacter {
         int[] wordFrequency = new int[words.length];
         int count = 0;
         for (String query : queries) {
-            char[] queryCharArray = query.toCharArray();
-            //O(nlogn)
-            Arrays.sort(queryCharArray);
-            queryFrequency[count++] = getLowestCharacterFrequency(queryCharArray);
+            queryFrequency[count++] = getLowestCharacterFrequencyWithoutSorting(query.toCharArray());
         }
         count =0;
         for (String word : words) {
-            char[] wordCharArr = word.toCharArray();
-            Arrays.sort(wordCharArr);
-            wordFrequency[count++] = getLowestCharacterFrequency(wordCharArr);
+            wordFrequency[count++] = getLowestCharacterFrequencyWithoutSorting(word.toCharArray());
         }
         int[] answer = new int[queries.length];
         for(int i=0;i<queryFrequency.length;i++) {
@@ -43,14 +37,17 @@ public class CompareStringsByFrequencyOfSmallestCharacter {
         return answer;
     }
 
-    static int getLowestCharacterFrequency(char[] word) {
-        //First character is the lowest.
+    //aashiaash
+    static int getLowestCharacterFrequencyWithoutSorting(char[] word) {
         char lowest = word[0];
-        int lowestCount = 0;
-        int index = 0;
-        //Find how many times is the first character repeated
-        while(index < word.length && word[index++] == lowest) {
-            lowestCount++;
+        int lowestCount = 1;
+        for(int i=1;i<word.length;i++) {
+            if(word[i] < lowest) {
+                lowest = word[i];
+                lowestCount = 1;
+            } else if(word[i] == lowest) {
+                lowestCount++;
+            }
         }
         return lowestCount;
     }
