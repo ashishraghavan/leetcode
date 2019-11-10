@@ -12,13 +12,16 @@ import java.util.Arrays;
  * If there are multiple answers, you may return any one of them.  It is guaranteed an answer exists.
  *
  * Check iPad notes for detailed solution attempt.
+ *
+ * UPDATE : Java two pointer solution found from link https://leetcode.com/problems/fair-candy-swap/discuss/390151/Two-pointers-Java-solution
  */
 public class FairCandySwap {
     //new int[]{6,5,8,3},new int[]{7,4,3,6}
     //new int[]{35,17,4,24,10},new int[]{63,21}
     //new int[]{20,35,22,6,13},new int[]{31,57}
+    //new int[]{32,38,8,1,9},new int[]{68,92}
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(fairCandySwap(new int[]{20,35,22,6,13},new int[]{31,57})));
+        System.out.println(Arrays.toString(fairCandySwap(new int[]{32,38,8,1,9},new int[]{68,92})));
     }
 
 
@@ -28,45 +31,21 @@ public class FairCandySwap {
         Arrays.sort(alice);
         //21,63
         Arrays.sort(bob);
-        int[] aliceCopy = new int[alice.length];
-        int[] bobCopy = new int[bob.length];
-        System.arraycopy(alice,0,aliceCopy,0,alice.length);
-        System.arraycopy(bob,0,bobCopy,0,bob.length);
-        int alicePtr = alice.length-1;
-        int bobPtr = bob.length-1;
+        int alicePtr = 0;
+        int bobPtr = 0;
         int aliceTotal = arraySum(alice);
         int bobTotal = arraySum(bob);
-        if(aliceTotal > bobTotal) {
-            //find an array element i,j where alice[i] > bob[j]
-            while(alicePtr >= 0 && bobPtr >= 0) {
-                if(alice[alicePtr] > bob[bobPtr]) {
-                    //Replace this value in the array copy
-                    aliceCopy[alicePtr] = bob[bobPtr];
-                    bobCopy[bobPtr] = alice[alicePtr];
-                    if(arraySum(aliceCopy) == arraySum(bobCopy)) {
-                        answer[0] = alice[alicePtr];
-                        answer[1] = bob[bobPtr];
-                        break;
-                    }
-                }
-                alicePtr--;
-                bobPtr--;
-            }
-        } else {
-            //find an array element i,j where alice[i] < bob[j]
-            while(alicePtr >= 0 && bobPtr >= 0) {
-                if(alice[alicePtr] < bob[bobPtr]) {
-                    //Replace this value in the array copy
-                    aliceCopy[alicePtr] = bob[bobPtr];
-                    bobCopy[bobPtr] = alice[alicePtr];
-                    if(arraySum(aliceCopy) == arraySum(bobCopy)) {
-                        answer[0] = alice[alicePtr];
-                        answer[1] = bob[bobPtr];
-                        break;
-                    }
-                }
-                alicePtr--;
-                bobPtr--;
+        int average = (aliceTotal + bobTotal)/2;
+        while(alicePtr < alice.length && bobPtr < bob.length) {
+            int newAvg = aliceTotal - alice[alicePtr] + bob[bobPtr];
+            if(newAvg == average) {
+                answer[0] = alice[alicePtr];
+                answer[1] = bob[bobPtr];
+                break;
+                } else if(newAvg > average) {
+                alicePtr++;
+            } else {
+                bobPtr++;
             }
         }
         return answer;
