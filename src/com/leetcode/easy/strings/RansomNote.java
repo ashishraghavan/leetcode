@@ -1,5 +1,8 @@
 package com.leetcode.easy.strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
  *
@@ -16,27 +19,34 @@ public class RansomNote {
 
     public static void main(String[] args) {
         //aaabbccc, bbcaabcca
-        System.out.println(canConstruct("aa","aab"));
+        System.out.println(canConstruct("aa","ab"));
     }
 
     //ransomNoteStr = aaabbccc
     //magazineStr =   bbcaabcca
     static boolean canConstruct(String ransomNoteStr, String magazineStr) {
         //If we exhaust ransomNoteStr characters, return true
-        //If even a single character cannot be found in magazineStr, we return false.
         //If ransomNoteStr length is greater than magazineStr, return false as magazine str clearly consists of less characters than ransomNoteStr
         if(ransomNoteStr.length() > magazineStr.length()) {
             return false;
         }
-        for(int i=0;i<ransomNoteStr.length();i++) {
-            //contains will scan the entire string to give a result.
-            if(magazineStr.contains(String.valueOf(ransomNoteStr.charAt(i)))) {
-                int foundIndex = magazineStr.indexOf(ransomNoteStr.charAt(i));
-                //remove char at index foundIndex and continue
-                magazineStr = magazineStr.replaceFirst(String.valueOf(magazineStr.charAt(foundIndex)),"");
+        Map<Character,Integer> charCount = new HashMap<>();
+        for(int i=0;i<magazineStr.length();i++) {
+            if(charCount.containsKey(magazineStr.charAt(i))) {
+                charCount.put(magazineStr.charAt(i),charCount.get(magazineStr.charAt(i))+1);
             } else {
+                charCount.put(magazineStr.charAt(i),1);
+            }
+        }
+        for(int i=0;i<ransomNoteStr.length();i++) {
+            char ch = ransomNoteStr.charAt(i);
+            if(!charCount.containsKey(ch)) {
                 return false;
             }
+            if(charCount.get(ch) <= 0) {
+                return false;
+            }
+            charCount.put(ch,charCount.get(ch) - 1);
         }
         return true;
     }
