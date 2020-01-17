@@ -12,6 +12,33 @@ import java.util.Map;
  * Both num1 and num2 contains only digits 0-9.
  * Both num1 and num2 does not contain any leading zero.
  * You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ *
+ * Solution got from https://leetcode.com/problems/add-strings/discuss/480958/Simple-Java-Soltn
+ *
+ * If you do int a = '0', b = '9' a will be equal to 48, b will be equal to 57.
+ * Loop should check if either a or b has any characters left or carry != 0. Go in and process if these
+ * conditions are met. The subtraction by '0' is needed because we are using the character values of numbers
+ * i.e 57 for '9', 48 for '0'. On subtracting by '0', we get the intended value.
+ *
+ * int i = num1.length()-1;
+ *         int j = num2.length()-1;
+ *         int carry = 0;
+ *
+ *         StringBuilder ans = new StringBuilder("");
+ *
+ *         while( i >= 0 || j >=0 || carry != 0){
+ *
+ *             char  a = i >=0 ? num1.charAt(i) : '0';
+ *             char  b = j >=0 ? num2.charAt(j) : '0';
+ *
+ *             int c =  a + b + carry -'0' -'0' ;
+ *
+ *             ans.append(c%10);s
+ *             carry = c/10;
+ *             i--;j--;
+ *         }
+ *
+ *         return ans.reverse().toString();
  */
 public class AddStrings {
     public static void main(String[] args) {
