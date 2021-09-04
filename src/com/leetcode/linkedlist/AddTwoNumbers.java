@@ -16,6 +16,7 @@ import java.util.ListIterator;
  *
  * l1 = [9,9,9,9,9,9,9] == 9 -> 9 -> 9 -> 9 -> 9 -> 9 -> 9
  * l2 = [9,9,9,9]       == 9 -> 9 -> 9 -> 9
+ * [8,9,9,9,0,0,0,1]
  *
  */
 public class AddTwoNumbers {
@@ -23,11 +24,11 @@ public class AddTwoNumbers {
     public static void main(String[] args) {
         List.SinglyLinkedList<Integer> l1 = new List.SinglyLinkedList<>();
         //l1.add(2);l1.add(4);l1.add(3);
-        l1.add(9);l1.add(9);l1.add(9);
+        l1.add(9);l1.add(9);l1.add(9);l1.add(9);l1.add(9);l1.add(9);l1.add(9);
 
         List.SinglyLinkedList<Integer> l2 = new List.SinglyLinkedList<>();
         //l2.add(5);l2.add(6);l2.add(4);l2.add(7);l2.add(2);
-        l2.add(9);l2.add(9);l2.add(9);
+        l2.add(9);l2.add(9);l2.add(9);l2.add(9);
 
         List.SinglyLinkedList<Integer> l3 = new List.SinglyLinkedList<>();
 
@@ -72,6 +73,9 @@ public class AddTwoNumbers {
                 carry = 0;
             }
             l3.add(afterVal);
+        }
+        if(carry != 0) {
+            l3.add(carry);
         }
         printResult(l3);
     }

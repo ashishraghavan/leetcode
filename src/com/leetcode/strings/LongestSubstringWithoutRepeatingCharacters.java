@@ -1,41 +1,53 @@
 package com.leetcode.strings;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-
-//TODO : Use the sliding window technique for Strings. Below method does not work for all strings i.e it is not the correct solution.
+/**
+ * MEDIUM #3
+ * 08-24-2021 - doing problem again.
+ * 09-04-2021 - accepted
+ *
+ * <strong>Sliding window technique</strong>
+ */
 public class LongestSubstringWithoutRepeatingCharacters {
 
+    //
+    //bbbbb
+    //pwwkew
+    //abcabcbbabcdef
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("dvdf"));
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
     }
 
-    private static int lengthOfLongestSubstring(String str) {
-        //For appending to build the longest substring. Will be cleared off after a repeated character is encountered.
-        //A list which keeps track of characters in the longest substring that have been currently parsed.
-        List<Character> characterTracker = new ArrayList<>();
-        int currentLongestSubstringCount = 0;
-        for(int i =0; i <str.length();i++) {
-            if(!characterTracker.contains(str.charAt(i))) {
-                characterTracker.add(str.charAt(i));
-                continue;
-            }
-            //The longest substring size will be the character tracker list size since we
-            //have been putting all non-repeating characters of a substring in this list.
-            if(characterTracker.size() > currentLongestSubstringCount) {
-                currentLongestSubstringCount = characterTracker.size();
-            }
-            //We do a reset of the character tracker list by clearing it.
-            characterTracker.clear();
-            //Add the repeated character to the character tracker list and start over again.
-            characterTracker.add(str.charAt(i));
+    //abcabcbb
+    //abc - a is repeated, store abc in map & track its length as current max.
+    //next character is new start - a,b,c - encounter b
+    // "abc", "abc", "bb", "abcdef"
+    //
+    private static int lengthOfLongestSubstring(String s) {
+        if(s == null || s.isEmpty()) {
+            return 0;
         }
-        if((currentLongestSubstringCount == 0 && characterTracker.size() > 0) ||
-                (characterTracker.size() > currentLongestSubstringCount)) {
-            currentLongestSubstringCount = characterTracker.size();
+        int max = Integer.MIN_VALUE;
+        int start = 0;
+        int end = 0;
+        int cmax;
+        Map<Character,Integer> hm = new HashMap<>();
+        for(;end<s.length();end++) {
+            Character ch = s.charAt(end);
+            if(hm.containsKey(ch)) {
+                //get max for index for this character & make it the new start
+                //before that, get length of this substring.
+                start = Math.max(hm.get(ch)+1,start);
+            }
+            cmax = (end - start) + 1;
+            if(cmax > max) {
+                max = cmax;
+            }
+            hm.put(ch,end);
         }
-        return currentLongestSubstringCount;
+        return max;
     }
 }
