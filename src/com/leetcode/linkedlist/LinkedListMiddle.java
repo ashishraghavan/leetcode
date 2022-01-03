@@ -127,7 +127,7 @@ public class LinkedListMiddle {
         return middleNode;
     }
 
-    static class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
         ListNode(int x) {
