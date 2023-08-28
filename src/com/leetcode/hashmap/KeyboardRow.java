@@ -1,8 +1,6 @@
 package com.leetcode.hashmap;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Given an array of strings words, return the words that can be typed using letters of the alphabet
@@ -25,11 +23,18 @@ import java.util.Map;
  */
 public class KeyboardRow {
     public static void main(String[] args) {
-        //System.out.println(Arrays.toString(findWords(new String[]{"Hello","Alaska","Dad","Peace"})));
-        System.out.println(Arrays.toString(findWords(new String[]{"Alaska","Dad"})));
+        //TC for findWords
+        //System.out.println(Arrays.toString(findWords(new String[]{"Alaska","Dad"})));
+
+        //TC for findWords_II
+        //System.out.println(Arrays.toString(findWords_II(new String[]{"Hello","Alaska","Dad","Peace"})));
+        //System.out.println(Arrays.toString(findWords_II(new String[]{"omk"})));
+        //System.out.println(Arrays.toString(findWords_II(new String[]{"adsdf","sfd"})));
+        //System.out.println(Arrays.toString(findWords_II(new String[]{"","??&ada"})));
+        System.out.println(Arrays.toString(findWords_II(new String[]{"daddy","qwertyz"})));
     }
 
-    //my incorrect solution
+    //attempt #1 - my incorrect solution
     static String[] findWords(String[] words) {
         //Hello.sort = ehllo, alaska.sort = aaakls
         Map<String,String> keyMap = new HashMap<>();
@@ -56,5 +61,42 @@ public class KeyboardRow {
             }
         }
         return result;
+    }
+
+    //attempt #2 - passing solution (runtime better than 100% of users with Java, memory better than 71.35% users with Java)
+    static String[] findWords_II(String[] words) {
+        List<String> resList = new ArrayList<>();
+        String first = "qwertyuiop";
+        String second = "asdfghjkl";
+        String third = "zxcvbnm";
+        String current;
+        for(String word : words) {
+            if (word == null || word.isEmpty()) continue;
+            current = null;
+            char[] wordChArr = word.toLowerCase().toCharArray();
+            String firstCh = String.valueOf(wordChArr[0]);
+            if (first.contains(firstCh)) {
+                current = first;
+            } else if (second.contains(firstCh)) {
+                current = second;
+            } else if (third.contains(firstCh)) {
+                current = third;
+            }
+            if (current == null) continue;
+            if (word.length() == 1) {
+                resList.add(word);
+                continue;
+            }
+            int i = 1;
+            for (; i < wordChArr.length; i++) {
+                if (!current.contains(Character.toString(wordChArr[i]))) {
+                    break;
+                }
+            }
+            if (i >= wordChArr.length) {
+                resList.add(word);
+            }
+        }
+        return resList.toArray(new String[0]);
     }
 }
