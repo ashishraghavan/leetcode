@@ -1,4 +1,4 @@
-package com.leetcode.hashmap;
+package com.leetcode.strings;
 
 import java.util.*;
 
