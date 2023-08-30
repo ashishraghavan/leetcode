@@ -4,6 +4,7 @@ package com.leetcode.practice;
  * Patterns in problem solving
  * Sliding window pattern
  *      Find max sum of k consecutive numbers in array of size n
+ * problem link : https://www.baeldung.com/cs/sliding-window-algorithm#fixed-size-sliding-window
  */
 public class FixedSizeSlidingWindow {
     public static void main(String[] args) {
