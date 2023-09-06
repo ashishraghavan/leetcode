@@ -7,9 +7,9 @@ import java.util.Arrays;
 public class MergeTwoSortedArrays {
     public static void main(String[] args) {
         int[] A = new int[]{1,1,3,5,7,0,0,0,0};
-        int [] B = new int[]{0,1,1,4};
+        int [] B = new int[]{3,6,8,9};
         int i = 0, j = 0, k;
-        while ( j < B.length ) {
+        while ( j < B.length && i < A.length) {
             if ( A[i] >= B[j]) {
                 if ( A[i] == B[j] ) {
                     i++;
@@ -22,6 +22,12 @@ public class MergeTwoSortedArrays {
                 j++;
             } else {
                 i++;
+            }
+        }
+        if (j < B.length) {
+            i = A.length - B.length + j;
+            for (;j < B.length; j++) {
+                A[i++] = B[j];
             }
         }
         System.out.println(Arrays.toString(A));
