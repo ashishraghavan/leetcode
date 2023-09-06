@@ -3,11 +3,11 @@ package com.leetcode.array;
 import java.util.Arrays;
 
 //leetcode #88
-//naive solution
+//naive solution - A = new int[]{1,1,3,5,7,0,0,0,0}, B = new int[]{0,1,1,4} || {3,6,8,9} || {0,0,0,2,4,7,9,10}
 public class MergeTwoSortedArrays {
     public static void main(String[] args) {
-        int[] A = new int[]{1,1,3,5,7,0,0,0,0};
-        int [] B = new int[]{3,6,8,9};
+        int[] A = new int[]{1,1,3,5,7,0,0,0,0,0,0,0,0};
+        int [] B = new int[]{0,0,0,2,4,7,9,10};
         int i = 0, j = 0, k;
         while ( j < B.length && i < A.length) {
             if ( A[i] >= B[j]) {
