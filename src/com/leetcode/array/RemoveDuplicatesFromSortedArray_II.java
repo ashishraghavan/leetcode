@@ -6,7 +6,9 @@ import java.util.Arrays;
 public class RemoveDuplicatesFromSortedArray_II {
     public static void main(String[] args) {
         //arr has been sorted, time comp. = O(nlogn) using quick sort
-        int[] A = new int[]{1,1,1,2,2,2,2,4,4,4};
+        //int[] A = new int[]{1,1,1,2,2,2,2,4,4,4};
+        //int[] A = new int[]{1,1,1,2,2,2,2,4};
+        int[] A = new int[]{1,1,2,2,4};
         int count = 1, i = 1, curr = A[0];
         //O(n)
         while ( i < A.length ) {
@@ -31,7 +33,8 @@ public class RemoveDuplicatesFromSortedArray_II {
             }
         }
         if ( a == -1 ) {
-            //no element = -1 in A
+            //no element = -1 in A, print original length of array & return
+            System.out.println(A.length);
             return;
         }
         b = a + 1;
