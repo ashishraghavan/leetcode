@@ -2,33 +2,37 @@ package com.leetcode.practice;
 
 public class BinaryTree extends BinarySearchTree {
 
+    public enum DIRECTION {
+        LEFT,
+        RIGHT
+    }
+
     public BinaryTree(int rootValue) {
         super(rootValue);
     }
 
     @Override
     public void insertNode(int value) {
-        this.searchAndInsert(getRoot(),value);
+        this.rInsert(getRoot(),value);
     }
 
-    @Override
-    protected void searchAndInsert(Node node, int value) {
-        Node parent = node;
-        Node currentNode = node;
-        while(currentNode != null) {
-            if(value <= currentNode.getValue()) {
-                parent = currentNode;
-                currentNode = currentNode.getLeft();
-            } else if(value >= currentNode.getValue()) {
-                parent = currentNode;
-                currentNode = currentNode.getRight();
-            }
-        }
-        currentNode = new Node(value);
-        if(value <= parent.getValue()) {
-            parent.setLeft(currentNode);
+    public void branchedInsertNode(DIRECTION direction, int value) {
+        boolean wasInserted = (direction == DIRECTION.LEFT? rInsert(getRoot().getLeft(),value) : rInsert(getRoot().getRight(),value));
+        System.out.println("was node inserted? - "+wasInserted);
+    }
+
+    //insert into a binary tree - each node has only two children
+    public boolean rInsert(Node node, int value) {
+        if (node.getLeft() == null) {
+            Node left = new Node(value);
+            node.setLeft(left);
+            return true;
+        } else if (node.getRight() == null) {
+            Node right = new Node(value);
+            node.setRight(right);
+            return true;
         } else {
-            parent.setRight(currentNode);
+            return rInsert(node.getLeft(),value) || rInsert(node.getRight(),value);
         }
     }
 }
