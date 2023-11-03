@@ -21,13 +21,19 @@ public class BinaryTreeTester {
         binaryTree.inOrderTraversal();
     }
 
-    public static Node createBinaryTree() {
+    public static Node createBinaryTree(Integer lastNodeValue, BinaryTree.DIRECTION direction) {
         int[] treeArray = new int[]{1,2,3,4,5};
         BinaryTree binaryTree = new BinaryTree(treeArray[0]);
         for(int i=1;i<treeArray.length;i++) {
             binaryTree.insertNode(treeArray[i]);
         }
-        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.RIGHT, 6);
+        if (lastNodeValue != null) {
+            //default direction is RIGHT
+            if (direction == null) {
+                direction = BinaryTree.DIRECTION.RIGHT;
+            }
+            binaryTree.branchedInsertNode(direction, lastNodeValue);
+        }
         return binaryTree.getRoot();
     }
 }

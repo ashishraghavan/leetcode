@@ -8,7 +8,7 @@ import java.util.List;
 public class BinTreeLevelOrderTraversal {
     public static void main(String[] args) {
         //create a binary tree with nodes [1,2,3,4,5,6]
-        Node root = BinaryTreeTester.createBinaryTree();
+        Node root = BinaryTreeTester.createBinaryTree(6, BinaryTree.DIRECTION.RIGHT);
         Deque<Node> q = new ArrayDeque<>();
         List<Integer> l = new ArrayList<>();
         q.offer(root);

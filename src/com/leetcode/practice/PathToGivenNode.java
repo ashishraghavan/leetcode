@@ -9,7 +9,7 @@ import java.util.List;
 public class PathToGivenNode {
     public static void main(String[] args) {
         //create bin tree - 1,2,3,4,5,6
-        Node root = BinaryTreeTester.createBinaryTree();
+        Node root = BinaryTreeTester.createBinaryTree(6, BinaryTree.DIRECTION.RIGHT);
         List<Integer> path = new ArrayList<>();
         findPath(root,path,6);
         System.out.println(path.toString());
