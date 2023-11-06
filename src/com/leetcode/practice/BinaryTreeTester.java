@@ -36,4 +36,27 @@ public class BinaryTreeTester {
         }
         return binaryTree.getRoot();
     }
+
+    //bin tree with 8 nodes
+    public static BinaryTree createBinaryTree() {
+        int[] treeArray = new int[]{1,2,3,4,5};
+        BinaryTree binaryTree = new BinaryTree(treeArray[0]);
+        for(int i=1;i<treeArray.length;i++) {
+            binaryTree.insertNode(treeArray[i]);
+        }
+        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.RIGHT, 6);
+        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.RIGHT, 7);
+        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.LEFT, 8);
+        return binaryTree;
+    }
+
+    //bin tree with 7 fixed nodes
+    public static BinaryTree createStaticBinaryTree() {
+        int[] treeArray = new int[]{1,2,3,4,5,6,7};
+        BinaryTree binaryTree = new BinaryTree(treeArray[0]);
+        for(int i=1;i<treeArray.length;i++) {
+            binaryTree.insertNode(treeArray[i]);
+        }
+        return binaryTree;
+    }
 }
