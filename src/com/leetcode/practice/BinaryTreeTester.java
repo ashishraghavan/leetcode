@@ -52,11 +52,14 @@ public class BinaryTreeTester {
 
     //bin tree with 7 fixed nodes
     public static BinaryTree createStaticBinaryTree() {
-        int[] treeArray = new int[]{1,2,3,4,5,6,7};
+        //int[] treeArray = new int[]{1,2,3,4,5,6,7};
+        int[] treeArray = new int[]{1,2,3,7,6,5,4};
         BinaryTree binaryTree = new BinaryTree(treeArray[0]);
-        for(int i=1;i<treeArray.length;i++) {
+        for(int i=1;i<treeArray.length-2;i++) {
             binaryTree.insertNode(treeArray[i]);
         }
+        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.RIGHT, treeArray[treeArray.length - 2]);
+        binaryTree.branchedInsertNode(BinaryTree.DIRECTION.RIGHT, treeArray[treeArray.length - 1]);
         return binaryTree;
     }
 }
