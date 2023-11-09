@@ -61,12 +61,12 @@ public class BinarySearchTree {
 
     private void printInOrder(Node node) {
         if(node.getLeft() == null && node.getRight() == null) {
-            System.out.println(node.getValue());
+            System.out.print(node.getValue()+ " ");
         } else {
             if(node.getLeft() != null) {
                 printInOrder(node.getLeft());
             }
-            System.out.println(node.getValue());
+            System.out.print(node.getValue()+ " ");
             if(node.getRight() != null) {
                 printInOrder(node.getRight());
             }
