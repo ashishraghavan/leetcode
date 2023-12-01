@@ -4,10 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-//Q : What is the size of the input array?
+//Q : What is the range of size of the input array?
+//Q : does array only contain positive integers? - assuming yes
 public class LargestNumberFromIntegerArray {
     public static void main(String[] args) {
-        int[] A = new int[]{9, 34, 5, 3, 30}; //---exp. o/p.----> "9534330"
+        //9, 34, 5, 3, 30 ---exp. o/p.----> "9534330"
+        int[] A = new int[]{9, 22, 5, 3, 22}; //---exp. o/p.----> "9532222"
         System.out.println(largestNumberFromArray(A));
     }
 
@@ -22,15 +24,13 @@ public class LargestNumberFromIntegerArray {
                 .collect(Collectors.joining());
     }
 
-    //if (((str1 == null || str1.isEmpty()) &&
-    //                    (str2 == null || str2.isEmpty())) || str1.equals(str2))
     static class NumberStrComparator implements Comparator<String> {
+
+        //Neither str1 nor str2 will ever be null/empty or a non-positive integer
+        //Therefore, only checking for equality & comparison for sorting in descending order
         @Override
         public int compare(String str1, String str2) {
-            //if str1 = null & str2 = null
-            if ((str1 == null || str1.isEmpty())
-                    || (str2 == null || str2.isEmpty())
-                    || (str1.equals(str2))) {
+            if (str1.equals(str2)) {
                 return 0;
             }
             return (Integer.parseInt(str1+str2) > Integer.parseInt(str2 + str1))?-1:1;
