@@ -6,8 +6,8 @@ public class MinimumRangeFromSortedArrays {
     public static void main(String[] args) {
 //        int[] A = new int[]{4,12,27,99};
 //        int[] B = new int[]{1,5,53,92,102};
-        int[] A = new int[]{4,12,27,59,99,103};
-        int[] B = new int[]{1,6,53,92,102};
+        int[] A = new int[]{0,4,12,27,59,99,103,120};
+        int[] B = new int[]{1,6,53,92,104};
 //        int[] A = new int[]{5,8,13,14,18,25,28,31,37,40,42};
 //        int[] B = new int[]{22,35,41,45,48,53,59,64,67,71,74,78,80};
 //        int[] A = new int[]{5,8,13,14,18,25,28,31,37,40,42};
@@ -38,15 +38,15 @@ public class MinimumRangeFromSortedArrays {
             }
             int first;
             int second;
-            if ((B[actualIdx] - A[i]) < (A[i] - B[actualIdx - 1])) {
+            if (actualIdx == 0 || ((B[actualIdx] - A[i]) < (A[i] - B[actualIdx - 1]))) {
                 first = A[i];
                 second = B[actualIdx];
             } else {
                 first = B[actualIdx - 1];
                 second = A[i];
             }
-            if (second - first < minRange) {
-                minRange = second - first;
+            if (Math.abs(second - first) < minRange) {
+                minRange = Math.abs(second - first);
                 range[0] = first;
                 range[1] = second;
             }
