@@ -3,15 +3,18 @@ package com.leetcode.strings;
 import java.util.HashMap;
 import java.util.Map;
 
+//TODO: review solution at
+// https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md
 public class StrobogrammaticNumber {
     public static void main(String[] args) {
         //6969 -> 9696 -> 6969, return true
-        System.out.println(isStrobogrammaticNumber("69769"));
+        System.out.println(isStrobogrammaticNumber("609"));
     }
 
     public static boolean isStrobogrammaticNumber(String str) {
         System.out.println(str);
         Map<Character,Character> stbMap = new HashMap<>();
+        stbMap.put('0','0');
         stbMap.put('1','~');
         stbMap.put('2','~');
         stbMap.put('3','~');
