@@ -1,4 +1,4 @@
-package com.leetcode.strings;
+package com.leetcode.premium;
 
 //Practicing problem #1056 Confusing Number
 public class ConfusingNumber {
