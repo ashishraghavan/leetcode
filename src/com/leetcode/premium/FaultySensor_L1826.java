@@ -3,7 +3,7 @@ package com.leetcode.premium;
 //check https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md for more details
 //problem # 1826
 //is comparable to github solution
-public class FaultySensor {
+public class FaultySensor_L1826 {
     public static void main(String[] args) {
         //new int[]{2,3,4,5},new int[]{2,1,3,4}
         //sensor1 = [2,2,2,2,2], sensor2 = [2,2,2,2,5]

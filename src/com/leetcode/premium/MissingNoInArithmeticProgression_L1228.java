@@ -3,7 +3,7 @@ package com.leetcode.premium;
 //problem # 1228
 // see https://github.com/doocs/leetcode/blob/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README_EN.md
 // for answer to problem
-public class MissingNoInArithmeticProgression {
+public class MissingNoInArithmeticProgression_L1228 {
     public static void main(String[] args) {
         //5,7,9,11,13 -> 5,7,11,13
         //15,14,13,12 -> 15,13,12

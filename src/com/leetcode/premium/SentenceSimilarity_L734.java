@@ -2,13 +2,12 @@ package com.leetcode.premium;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-//TODO: pending
+//problem # 734
 //Check
 // https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md
 // for more details
-public class SentenceSimilarity {
+public class SentenceSimilarity_L734 {
     public static void main(String[] args) {
         String[] sen1 = new String[]{"great","acting","skills"};
         String[] sen2 = new String[]{"fine","drama","talent"};
