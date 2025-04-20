@@ -1,6 +1,8 @@
 package com.leetcode.premium;
 
 //problem # 1228
+// see https://github.com/doocs/leetcode/blob/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README_EN.md
+// for answer to problem
 public class MissingNoInArithmeticProgression {
     public static void main(String[] args) {
         //5,7,9,11,13 -> 5,7,11,13
@@ -12,17 +14,6 @@ public class MissingNoInArithmeticProgression {
     }
 
     public static int missingNo(int[] A) {
-        //i = 0, j = 1
-        //diff of A[j]-A[i] == A[j+1]-A[i+1] == A[j+2]-A[i+2]
-//        if(A.length == 3) {
-//            int diffL = Math.abs(A[1] - A[0]);
-//            int diffR = Math.abs(A[2] - A[1]);
-//            if(diffL < diffR) {
-//                return A[1] + diffL;
-//            } else {
-//                return A[1] + diffR;
-//            }
-//        }
         int minD = Integer.MAX_VALUE, maxD = Integer.MIN_VALUE;
         for (int i = 1; i <= A.length - 1; i++) {
             minD = Math.min(minD, Math.abs(A[i] - A[i-1]));
@@ -35,8 +26,6 @@ public class MissingNoInArithmeticProgression {
                 return isInc ? A[i-1] + minD : A[i] + minD;
             }
         }
-//        System.out.println("min diff: "+minD);
-//        System.out.println("max diff: "+maxD);
         return -1;
     }
 }
