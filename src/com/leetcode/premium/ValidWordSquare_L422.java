@@ -4,6 +4,7 @@ package com.leetcode.premium;
 //check
 // https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md
 // for more details
+//TODO: review
 public class ValidWordSquare_L422 {
     public static void main(String[] args) {
         //new String[]{"abcd","bnrt","crmy","dtye"}

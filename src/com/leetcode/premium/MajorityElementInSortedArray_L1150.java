@@ -7,6 +7,7 @@ import java.util.Arrays;
 // for
 // more
 // details
+//TODO: review
 public class MajorityElementInSortedArray_L1150 {
     public static void main(String[] args) {
         //2,4,5,5,5,5,5,6,6

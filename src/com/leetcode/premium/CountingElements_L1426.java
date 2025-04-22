@@ -7,6 +7,7 @@ import java.util.Arrays;
 //for
 //more
 //details
+//TODO: review
 public class CountingElements_L1426 {
     public static void main(String[] args) {
         //1,1,3,3,5,5,7,7

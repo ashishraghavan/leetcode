@@ -7,6 +7,7 @@ import java.util.Map;
 //Check
 // https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md
 // for more details
+//TODO: review
 public class SentenceSimilarity_L734 {
     public static void main(String[] args) {
         String[] sen1 = new String[]{"great","acting","skills"};
