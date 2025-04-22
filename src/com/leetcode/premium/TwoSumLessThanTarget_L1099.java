@@ -16,7 +16,7 @@ public class TwoSumLessThanTarget_L1099 {
 
         //34,23,1,24,75,33,54,8 -sort-> 1,8,23,24,33,34,55,75
         //35,6,20,25,33,9,54,29,65 -sort-> 6,9,20,25,29,33,35,54,65
-        System.out.println(twoSumLessThanKII(new int[]{10,20,30},15));
+        System.out.println(twoSumLessThanKII(new int[]{34,23,1,25,75,33,54,8},60));
     }
 
     //solution with runtime O(n^2) where n = A.length
@@ -47,11 +47,7 @@ public class TwoSumLessThanTarget_L1099 {
         int f = 0, l = A.length-1;
         int diff = Integer.MAX_VALUE, val = -1;
         while(f < l) {
-            if(A[l] >= K){
-                l--;
-                continue;
-            }
-            if(A[f] + A[l] >= K) {
+            if(A[l] >= K || A[f] + A[l] >= K) {
                 l--;
                 continue;
             }
