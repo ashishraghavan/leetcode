@@ -11,10 +11,12 @@ public class FlipGame_L293 {
     public static void main(String[] args) {
         //++++
         //+
-        //+--++-+--++ => +-----+--++, +--++-+----
-        System.out.println(flipGame("+--++-+--++"));
+        //+--++-+--++ == +-----+--++, +--++-+----
+        //+++
+        System.out.println(flipGame("+++"));
     }
 
+    //O(n) time, O(n) space
     public static List<String> flipGame(String S) {
         //++++ -> --++, +--+, ++--
         //find all indexes where a + is followed by another + -> for ++++ => K:{0,1,2}
