@@ -8,12 +8,15 @@ import java.util.Arrays;
 //for
 //more
 //details
+//TODO: review
 public class LargestSubArrayOfLengthK_L1708 {
     public static void main(String[] args) {
         //{1,4,5,2,3}, k = 3
         //{1,4,5,2,3}, k = 4
         //{1,4,5,2,3}, k = 1
-        System.out.println(Arrays.toString(largestSubArray(new int[]{1,4,5,2,3},3)));
+        //8,1,2,3,10,6,9,7,4,5 | k=4
+        //1,4,5,2,3,7,6,10,8,9 | k=3
+        System.out.println(Arrays.toString(largestSubArrayII(new int[]{1,4,5,2,3,7,6,10,8,9},3)));
     }
 
     //my first attempt at problem solution
@@ -36,5 +39,13 @@ public class LargestSubArrayOfLengthK_L1708 {
         //8,1,2,3,10,6,9,7,4,5 | k=4
         //{8,1,2,3} {1,2,3,10} {2,3,10,6} {3,10,6,9} {10,6,9,7} {6,9,7,4} {9,7,4,5}, no of subarrays =
         return new int[]{};
+    }
+
+    public static int[] largestSubArrayII(int[] A,int k) {
+        int max = 0;
+        for(int i=0;i<A.length-k+1;i++) {
+            max = Math.max(A[max],A[i]) == A[max] ? max : i;
+        }
+        return Arrays.copyOfRange(A,max,max+k);
     }
 }
