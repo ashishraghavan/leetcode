@@ -13,7 +13,7 @@ public class ShortestWordDistance_L243 {
         //shortestWordDistance(new String[]{"practice", "makes", "perfect", "coding", "makes"},"coding","practice")
         //{"practice", "makes", "perfect", "coding", "makes"}, "makes","coding"
         //{"practice", "ashish", "perfect", "coding", "minu","perfect","minu","perfect","ashish","minu"}, "ashish","minu"
-        System.out.println(shortestWordDistance(new String[]{"practice", "ashish", "perfect", "coding", "minu","perfect","minu","perfect","ashish","minu"}, "ashish","minu"));
+        System.out.println(shortestWordDistanceGithubSolution(new String[]{"practice", "ashish", "perfect", "coding", "minu","perfect","minu","perfect","ashish","minu"}, "ashish","minu"));
     }
 
     //incorrect solution!!! doesn't work for all test cases
@@ -83,6 +83,23 @@ public class ShortestWordDistance_L243 {
                         dist = Math.min(dist, j-i);
                     }
                 }
+            }
+        }
+        return dist;
+    }
+
+    //SOLUTION FROM GITHUB
+    public static int shortestWordDistanceGithubSolution(String[] W,String w1, String w2) {
+        int dist = Integer.MAX_VALUE;
+        for(int k=0,i=-1,j=-1; k < W.length; k++) {
+            if (W[k].equals(w1)) {
+                i = k;
+            }
+            if (W[k].equals(w2)) {
+                j = k;
+            }
+            if (i!=-1 && j!=-1) {
+                dist = Math.min(dist,Math.abs(i-j));
             }
         }
         return dist;
