@@ -1,0 +1,1 @@
+attempted solutions to leetcode easy problems regardless of type i.e. string/array/tree etc 
