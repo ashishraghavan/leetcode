@@ -15,19 +15,57 @@ public class LongPressedName_L925 {
         //name = "saeed", typed = "ssaaedd"
         //ashish, asshhhishh
         //rick, kric
-        System.out.println(isLongPressedNameII("alex","aaleex"));
+        //a, aaaaaa
+        System.out.println(isLongPressedName("a","aaaaaaaaaaaaaaaaa"));
     }
 
     //ashish -> a1s2h2i1, asshhhishh -> a1s3h5i1
     //ashish, aaashhhisshh -> a3s1h3i1s2h2
+    //aleex, aaleex -> a1l1e2x1, a2l1e2x1
+    //aleex, xelaea -> a1l1e2x1, x1e2l1a2
+    //alex, aaleexall -> a1l1e1x1, a2l1e2x1a1l2
+    //name = "xela", typed = "aaleex", return false
     public static boolean isLongPressedName(String name, String typed) {
         //name = "alex", typed = "aaleex"
         //a=2,l=1,e=2.x=1 should also be in the same order as name
+        //
+        //
+        String nameFreqStr = buildCharFrequencyString(name);
+        System.out.println(nameFreqStr);
+        String typedFreqStr = buildCharFrequencyString(typed);
+        System.out.println(typedFreqStr);
+        if(typedFreqStr.length() != nameFreqStr.length()) {
+            return false;
+        }
+        for(int i = 0; i < nameFreqStr.length(); i+=2) {
+            if(nameFreqStr.charAt(i) != typedFreqStr.charAt(i) ||
+                    (i+1 < nameFreqStr.length() &&
+                            i+1 < typedFreqStr.length() &&
+                            Character.digit(nameFreqStr.charAt(i+1),10) > Character.digit(typedFreqStr.charAt(i+1),10))) {
+                                       return false;
+            }
+        }
+        return true;
+    }
 
-        //name = "alex", typed = "aaleex", return true
-        //name = "xela", typed = "aaleex", return false
-        //how to make sure if order is maintained?
-        return false;
+    //alex -> a1l1e1x1, aaleexall -> a2l1e2x1a1l2
+    private static String buildCharFrequencyString(String S) {
+        int ct = 1;
+        StringBuilder sb = new StringBuilder();
+        char currCh = S.charAt(0);
+        sb.append(currCh);
+        for(int i=1; i < S.length();i++) {
+            if(S.charAt(i) == currCh) {
+                ct++;
+            } else {
+                sb.append(ct);
+                ct = 1;
+                currCh = S.charAt(i);
+                sb.append(currCh);
+            }
+        }
+        sb.append(ct);
+        return sb.toString();
     }
 
     public static boolean isLongPressedNameIII(String name, String typed) {
