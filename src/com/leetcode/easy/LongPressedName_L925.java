@@ -8,7 +8,11 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
-//TODO: pending
+//TODO: IMPORTANT, review!!!
+//check https://github.com/doocs/leetcode/tree/main/solution/0900-0999/0925.Long%20Pressed%20Name
+//for
+//more
+//details
 public class LongPressedName_L925 {
     public static void main(String[] args) {
         //name = "alex", typed = "aaleex"
@@ -16,7 +20,32 @@ public class LongPressedName_L925 {
         //ashish, asshhhishh
         //rick, kric
         //a, aaaaaa
-        System.out.println(isLongPressedName("a","aaaaaaaaaaaaaaaaa"));
+        System.out.println(isLongPressedNameIV("a","aaaaaaaaaaaaaaaaa"));
+    }
+
+    //name = "saeed", typed = "ssaaedd"
+    public static boolean isLongPressedNameIV(String name,String typed) {
+        int i = 0, j = 0, x,y;
+        int n = name.length(), m = typed.length();
+        while(i < n && j < m) {
+            if(name.charAt(i) != typed.charAt(j)) {
+                return false;
+            }
+            x = i + 1;
+            while(x < n && name.charAt(x) == name.charAt(i)) {
+                ++x;
+            }
+            y = j + 1;
+            while(y < m && typed.charAt(y) == typed.charAt(j)) {
+                ++y;
+            }
+            if(x-i > y-j) {
+                return false;
+            }
+            i=x;
+            j=y;
+        }
+        return i == n && j == m;
     }
 
     //ashish -> a1s2h2i1, asshhhishh -> a1s3h5i1
@@ -25,6 +54,7 @@ public class LongPressedName_L925 {
     //aleex, xelaea -> a1l1e2x1, x1e2l1a2
     //alex, aaleexall -> a1l1e1x1, a2l1e2x1a1l2
     //name = "xela", typed = "aaleex", return false
+    //partially correct solution
     public static boolean isLongPressedName(String name, String typed) {
         //name = "alex", typed = "aaleex"
         //a=2,l=1,e=2.x=1 should also be in the same order as name
@@ -68,6 +98,7 @@ public class LongPressedName_L925 {
         return sb.toString();
     }
 
+    //incorrect solution
     public static boolean isLongPressedNameIII(String name, String typed) {
         LinkedHashMap<Character,Long> typedFreq = typed.chars().mapToObj(ch->(char)ch).collect(groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
         StringBuilder sb = new StringBuilder();
@@ -83,6 +114,7 @@ public class LongPressedName_L925 {
     }
 
     //ashish -> a=1,s=2,h=2,i=1, asshhhishh -> a=1,s=3,h=5,i=1
+    //incorrect solution
     public static boolean isLongPressedNameII(String name,String typed) {
         LinkedHashMap<Character,Long> nameFreq = name.chars().mapToObj(ch->(char)ch).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
         LinkedHashMap<Character,Long> typedFreq = typed.chars().mapToObj(ch->(char)ch).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
@@ -99,4 +131,6 @@ public class LongPressedName_L925 {
 //            if(!typedFreq.containsKey(ch) || typedFreq.get(ch) < nameFreq.get(ch))return false;
 //        }
     }
+
+
 }
