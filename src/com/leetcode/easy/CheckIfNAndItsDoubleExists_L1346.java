@@ -1,9 +1,11 @@
 package com.leetcode.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 //problem # 1346 check if number & its double exists
+//TODO: pending (check github efficient solution)
 public class CheckIfNAndItsDoubleExists_L1346 {
     public static void main(String[] args) {
         //10,2,5,3
@@ -11,7 +13,8 @@ public class CheckIfNAndItsDoubleExists_L1346 {
         //7,25,8,-12,1,50,2,0,17,7
         //7,0,8,-12,1,50,2,0,17,7
         //7,1,14,11
-        System.out.println(checkIfExist(new int[]{3,1,7,11}));
+        //-10,12,-20,-8,15 -sort-> -20,-10,-8,12,15
+        System.out.println(checkIfExistII(new int[]{-10,12,-20,-8,15}));
     }
 
     //10,2,5,3
@@ -45,6 +48,25 @@ public class CheckIfNAndItsDoubleExists_L1346 {
             if(map.containsKey(key*2)) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    //int[] res = new int[500], initialize with -1
+    //-7,25,8,14,1,50,2,0,17 -sort-> -7,0,1,2,8,14,17,25,50
+    //-10,12,-20,-8,15 -sort-> -20,-10,-8,12,15
+    public static boolean checkIfExistII(int[] arr) {
+        //if arr[i] = +ve, Arrays.binarySearch(arr,i+1,arr.length,arr[i]*2)
+        //else Arrays.binarySearch(arr,0,i-1,arr[i]*2)
+        Arrays.sort(arr);
+        int idx;
+        for(int i=0;i<arr.length;i++) {
+            if(arr[i] < 0) {
+                idx = i-1 >= 0 ? Arrays.binarySearch(arr,0,i+1,arr[i]*2):-1;
+            } else {
+                idx = Arrays.binarySearch(arr,i+1,arr.length,arr[i]*2);
+            }
+            if(idx >= 0) return true;
         }
         return false;
     }
