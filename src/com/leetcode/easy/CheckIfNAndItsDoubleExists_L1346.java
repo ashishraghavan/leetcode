@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 //problem # 1346 check if number & its double exists
-//TODO: pending (check github efficient solution)
+//TODO: pending (check github easier & efficient solution)
+//check https://github.com/doocs/leetcode/tree/main/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist
+//for github solution
 public class CheckIfNAndItsDoubleExists_L1346 {
     public static void main(String[] args) {
         //10,2,5,3
