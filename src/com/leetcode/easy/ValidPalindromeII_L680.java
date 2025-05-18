@@ -2,6 +2,7 @@ package com.leetcode.easy;
 
 //problem # 680 - valid palindrome II
 //TODO: pending - revisit problem
+//check https://github.com/doocs/leetcode/tree/main/solution/0600-0699/0680.Valid%20Palindrome%20II for github solution
 public class ValidPalindromeII_L680 {
     public static void main(String[] args) {
         //deeee
@@ -48,7 +49,7 @@ public class ValidPalindromeII_L680 {
     }
 
     public static boolean validPalindromeII(String s) {
-
+        return false;
     }
 
     private static boolean isPalindrome(String s) {
