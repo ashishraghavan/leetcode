@@ -1,19 +1,20 @@
 package com.leetcode.easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 //problem # 290 - word pattern
-//TODO: wrong understanding, revise!!!
+//TODO: wrong understanding, revise!!! maybe post in stackoverflow!??!
 //check https://github.com/doocs/leetcode/tree/main/solution/0200-0299/0290.Word%20Pattern
 //for github solution
 public class WordPattern_L290 {
     public static void main(String[] args) {
         //"abbac","dog cat cat dog"
         //"booo","dora tora tora dora"
-        System.out.println(wordPattern("aba","dog cat cat"));
+        System.out.println(wordPatternII("aba","dog cat cat"));
         //wordPattern("abba","dog cat cat dog");
     }
 
@@ -40,5 +41,27 @@ public class WordPattern_L290 {
         //System.out.println("wordFreq values: "+wordFreq.values());
         //charFreq.values().equals(wordFreq.values())
         return (charFreq.size() == wordFreq.size()) && (charFreq.values().containsAll(wordFreq.values()));
+    }
+
+
+    //pattern = "aba", s = "dog cat cat"
+    //github solution!
+    public static boolean wordPatternII(String pattern, String s) {
+        String[] ws = s.split(" ");
+        if (pattern.length() != ws.length) {
+            return false;
+        }
+        Map<Character, String> d1 = new HashMap<>();
+        Map<String, Character> d2 = new HashMap<>();
+        for (int i = 0; i < ws.length; ++i) {
+            char a = pattern.charAt(i);
+            String b = ws[i];
+            if (!d1.getOrDefault(a, b).equals(b) || d2.getOrDefault(b, a) != a) {
+                return false;
+            }
+            d1.put(a, b);
+            d2.put(b, a);
+        }
+        return true;
     }
 }
