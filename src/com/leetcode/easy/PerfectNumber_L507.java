@@ -14,7 +14,7 @@ public class PerfectNumber_L507 {
         //33550336
         //33550379
         //100000000
-        System.out.println(checkPerfectNumber(11));
+        System.out.println(checkPerfectNumberII(28));
     }
 
     //inefficient solution
@@ -28,5 +28,23 @@ public class PerfectNumber_L507 {
             }
         }
         return res==num;
+    }
+
+    //TODO: revise below github solution, is efficient! each iteration i reduces the TO range to num/i,
+    // also check euclidean perfect number
+    public static boolean checkPerfectNumberII(int num) {
+        if (num == 1) {
+            return false;
+        }
+        int s = 1;
+        for (int i = 2; i <= num / i; ++i) {
+            if (num % i == 0) {
+                s += i;
+                if (i != num / i) {
+                    s += num / i;
+                }
+            }
+        }
+        return s == num;
     }
 }
