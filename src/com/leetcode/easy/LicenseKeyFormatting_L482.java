@@ -23,7 +23,7 @@ public class LicenseKeyFormatting_L482 {
 
     //abcd-9eheuiwuei-5i-e-902-ieow, k=3, 24 alphanumeric chars, 24/3 = 8 groups, first group can contain k chars
     //abc-d9e-heu-iwu-ei5-ie9-02i-eow
-    //inefficient solution
+    //TODO: inefficient solution because of use of insert()!
     public static String licenseKeyFormatting(String s, int k) {
         if(s.length() == 1 && s.charAt(0)!='-') {
             return s.toUpperCase();
