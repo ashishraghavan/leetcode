@@ -1,6 +1,8 @@
 package com.leetcode.easy;
 
 //problem # 482 license key formatting
+//TODO: review, somewhat good string problem
+//see problem discussion for better solution, also check https://github.com/doocs/leetcode/tree/main/solution/0400-0499/0482.License%20Key%20Formatting for github solution
 public class LicenseKeyFormatting_L482 {
     public static void main(String[] args) {
         //"2-5g-3-J", k = 2
