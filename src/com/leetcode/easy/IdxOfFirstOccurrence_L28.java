@@ -1,8 +1,12 @@
 package com.leetcode.easy;
 
-//TODO: pending
 //O(n*m) solution
-public class IdxOfFirstOccurrence {
+//problem # 28 - index of first occurrence
+//TODO: understand rabin karp algorithm for string matching to reduce time complexity to O(n+m) &
+// space complexity to O(1)
+// check https://github.com/doocs/leetcode/tree/main/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String
+// for github solution
+public class IdxOfFirstOccurrence_L28 {
     public static void main(String[] args) {
         //sadbutsad sabdsmoothsaddobs sasadbusaddtt
         //sasatdsatsdasasad, sad
