@@ -3,6 +3,8 @@ package com.leetcode.easy;
 import java.util.Arrays;
 
 //problem # 643 max avg subarray
+//check https://github.com/doocs/leetcode/tree/main/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I
+//for github solution
 public class MaxAvgSubarray_L643 {
     public static void main(String[] args) {
         //1,12,-5,-6,50,3 | 4
