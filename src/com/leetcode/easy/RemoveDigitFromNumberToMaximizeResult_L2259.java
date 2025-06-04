@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
 //problem # 2259 - remove digit from number to maximize result
+//check https://github.com/doocs/leetcode/tree/main/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result for github solution
 public class RemoveDigitFromNumberToMaximizeResult_L2259 {
     public static void main(String[] args) {
         //1231, 1
@@ -13,6 +14,9 @@ public class RemoveDigitFromNumberToMaximizeResult_L2259 {
     //84395023842340923329848475803923203984023948457
     //788788888888887887 7 -> 88788888888887887, 78888888888887887, 78878888888888887, 78878888888888788
     //9999699999999999999999699999999999999699999999999969999999999999996999999999999999999996999999969966, 6
+    //519456, 5 -> 19456, 51946
+    //210101790, 0 -> 21101790, 21011790, 21010179
+    //213141710, 1 -> 23141710, 21341710, 21314710, 21314170
     //INEFFICIENT SOLUTION
     public static String removeDigit(String number, char digit) {
         String res = "";
