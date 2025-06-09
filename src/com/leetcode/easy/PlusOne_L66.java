@@ -11,7 +11,8 @@ public class PlusOne_L66 {
         //9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9
         //1,9,9,9
         //3,9,8,9
-        System.out.println(Arrays.toString(plusOne(new int[]{4,9,9,9})));
+        //4,9,9,9
+        System.out.println(Arrays.toString(plusOne(new int[]{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9})));
     }
 
     //max value of digits[i] + 1 = 10 coz 0<=digits[i]<=9
@@ -21,16 +22,14 @@ public class PlusOne_L66 {
     //inefficient solution
     public static int[] plusOne(int[] digits) {
         List<Integer> res = new ArrayList<>();
+//        int[] resArr = new int[digits.length+1];
+//        Arrays.fill(resArr,0);
+        int idx = 0;
         int sum, carry = 0;
         for(int i=digits.length-1;i>=0;i--) {
             sum = (i == digits.length-1) ? digits[i] + 1 : digits[i] + carry;
-            if(sum > 9) {
-                carry = sum/ 10;
-                res.add(sum%10);
-            } else {
-                carry = 0;
-                res.add(sum);
-            }
+            carry = sum/10;
+            res.add(sum%10);
         }
         if(carry > 0) {
             res.add(carry);
