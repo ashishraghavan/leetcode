@@ -2,7 +2,7 @@ package com.leetcode.easy;
 
 import com.leetcode.tree.TreeNode;
 
-//problem #112 - path sum in binary tree
+//problem #112 - path sum in binary tree [tree]
 //check https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg for reference image
 public class PathSum_L112 {
     public static void main(String[] args) {

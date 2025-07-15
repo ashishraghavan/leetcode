@@ -2,6 +2,7 @@ package com.leetcode.easy;
 
 import com.leetcode.tree.TreeNode;
 
+//TODO: grouped under [tree]
 //problem #111 - minimum depth of binary tree
 public class MinimumDepthOfBinaryTree_L111 {
     public static void main(String[] args) {
