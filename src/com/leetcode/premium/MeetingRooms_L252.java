@@ -14,6 +14,7 @@ public class MeetingRooms_L252 {
         System.out.println(canAttendAllMeetings(new int[][]{{7,10},{2,4},{4,7},{17,21},{12,15},{0,1}}));
     }
 
+    //TODO: revise at least 10 times, is extremely useful
     static Comparator<int[]> arrComp = Comparator.comparingInt(a -> a[0]);
 
     //if ivl.isEmpty return true
