@@ -43,8 +43,7 @@ public class MonotonicArray_L896 {
         int diff = Integer.compare(nums[0],nums[nums.length-1]);
         for(int i=1;i<nums.length;i++) {
             int currDiff = Integer.compare(nums[i-1],nums[i]);
-            if(currDiff == 0)continue;
-            if(currDiff != diff)return false;
+            if(currDiff != 0 && currDiff != diff)return false;
         }
         return true;
     }
