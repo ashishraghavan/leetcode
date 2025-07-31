@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
 //prob # 1539 - kth missing positive number
+//check https://algo.monster/liteproblems/1539 for intuitive explanation
 public class KthMissingPositiveNumber_L1539 {
     public static void main(String[] args) {
         //2,3,4,7,11    5
