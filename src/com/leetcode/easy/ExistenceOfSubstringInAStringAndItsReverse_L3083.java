@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
 //prob # 3083 - existence of substring in a string and its reverse
+//check https://github.com/doocs/leetcode/tree/main/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse for solution using 2D array/hashtable
 public class ExistenceOfSubstringInAStringAndItsReverse_L3083 {
     public static void main(String[] args) {
         //leetcode
