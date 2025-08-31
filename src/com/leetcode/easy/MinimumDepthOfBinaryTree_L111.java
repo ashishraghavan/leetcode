@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
-import com.leetcode.tree.TreeNode;
+
+import com.leetcode.tree.core.TreeNode;
 
 //TODO: grouped under [tree]
 //problem #111 - minimum depth of binary tree

@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
-import com.leetcode.tree.TreeNode;
+
+import com.leetcode.tree.core.TreeNode;
 
 //problem #112 - path sum in binary tree [tree]
 //check https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg for reference image
