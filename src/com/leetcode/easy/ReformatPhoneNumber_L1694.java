@@ -1,6 +1,5 @@
 package com.leetcode.easy;
 
-//TODO: solution passing, pending optimization
 //prob #1694 - reformat phone number
 public class ReformatPhoneNumber_L1694 {
     public static void main(String[] args) {
@@ -28,17 +27,16 @@ public class ReformatPhoneNumber_L1694 {
         }
         int start = 0,end = 3;
         for(int i=0;i<grp;i++) {
-            sb.append(number.substring(start,end)).append("-");
+            sb.append(number, start, end).append("-");
             start += 3;
             end += 3;
         }
         if(lastGrp == 4) {
             String reminderStr = number.substring(start);
-            sb.append(reminderStr.substring(0,2)).append("-").append(reminderStr.substring(2));
+            sb.append(reminderStr, 0, 2).append("-").append(reminderStr.substring(2));
         } else {
             sb.append(number.substring(start));
         }
-        //System.out.println(sb);
         String res = sb.toString();
         return res.endsWith("-") ? res.substring(0,res.length()-1) : res;
     }
