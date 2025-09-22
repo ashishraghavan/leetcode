@@ -13,7 +13,7 @@ public class LargestSubstringBetweenTwoEqualCharacters_L1624 {
         //abca
         //cbzxy
         //aa
-        System.out.println(maxLengthBetweenEqualCharactersII("zdbqfyzijqklmzoy"));
+        System.out.println(maxLengthBetweenEqualCharactersIII("zdbqfyzijqklmzoy"));
     }
 
     //zdbqfyzijqklmzoy -> zdbqfyzijqklmz, qfyijq, yijqklmzoy
@@ -76,6 +76,23 @@ public class LargestSubstringBetweenTwoEqualCharacters_L1624 {
             if(map.get(ch) != null && map.get(ch).size() > 1) {
                 List<Integer> list = map.get(ch);
                 mxLen = Math.max(mxLen,list.get(list.size()-1) - list.get(0) - 1);
+            }
+        }
+        return mxLen;
+    }
+
+
+    //zdbqfyzijqklmzoy
+    //solution based on first result from google search "leetcode 1624 intuition"
+    public static int maxLengthBetweenEqualCharactersIII(String s) {
+        if(s.length() == 1)return -1;
+        Map<Character,Integer> mp = new HashMap<>(s.length());
+        int mxLen = 0;
+        for(int i=0;i<s.length();i++) {
+            if(mp.containsKey(s.charAt(i))) {
+                mxLen = Math.max(mxLen,i - mp.get(s.charAt(i)) - 1);
+            } else {
+                mp.put(s.charAt(i),i);
             }
         }
         return mxLen;
