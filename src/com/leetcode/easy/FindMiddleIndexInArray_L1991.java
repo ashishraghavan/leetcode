@@ -1,6 +1,7 @@
 package com.leetcode.easy;
 
 //prob #1991 - find middle index in array
+//used concept of suffix, prefix array to store sum at each index
 public class FindMiddleIndexInArray_L1991 {
     public static void main(String[] args) {
         //2,3,-1,8,4
