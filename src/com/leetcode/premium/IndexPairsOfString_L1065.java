@@ -7,7 +7,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-//TODO; review
+//TODO; definitely [review], problem involves trie data structure
 //problem # 1065 index pairs of string
 //check https://github.com/doocs/leetcode/tree/main/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String
 //for
