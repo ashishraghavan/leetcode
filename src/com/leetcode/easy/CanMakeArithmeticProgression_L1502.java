@@ -2,7 +2,9 @@ package com.leetcode.easy;
 
 import java.util.Arrays;
 
-//TODO: [revise] can do better with execution time
+//TODO: [revise] can do better with execution time,
+// check https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence
+// for explanation on optimized solution
 //prob # 1502 - can make arithmetic progression
 public class CanMakeArithmeticProgression_L1502 {
     public static void main(String[] args) {
