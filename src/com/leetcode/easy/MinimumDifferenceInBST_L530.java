@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //TODO: [solved][tree], can be solved in a better way
-//prob #530 - minimum absolute difference in bst
+//prob #530 - minimum absolute difference in bst, check https://algo.monster/liteproblems/530 for a better solution
 public class MinimumDifferenceInBST_L530 {
+    static int min;
     public static void main(String[] args) {
         TreeNode left = new TreeNode(2,new TreeNode(1),new TreeNode(3));
         TreeNode right = new TreeNode(6);
@@ -20,7 +21,7 @@ public class MinimumDifferenceInBST_L530 {
         TreeNode left2 = new TreeNode(384,null,new TreeNode(445));
         TreeNode right2 = new TreeNode(652,null,new TreeNode(699));
         TreeNode root2 = new TreeNode(543,left2,right2);
-        System.out.println(getMinimumDifference(root2));
+        System.out.println(getMinimumDifferenceII(root2));
     }
 
     //do inorder traversal, return difference
@@ -42,5 +43,22 @@ public class MinimumDifferenceInBST_L530 {
         inOrderTraversal(root.left(),inOrdArr);
         inOrdArr.add(root.val());
         inOrderTraversal(root.right(),inOrdArr);
+    }
+
+    //another solution to prob however with the same run-time
+    public static int getMinimumDifferenceII(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        inOrdTrvMinDiff(root,list);
+        return min;
+    }
+
+    public static void inOrdTrvMinDiff(TreeNode root,List<Integer> list) {
+        if(root == null)return;
+        inOrdTrvMinDiff(root.left(),list);
+        if(!list.isEmpty()) {
+            min = Math.min(min,root.val() - list.get(list.size()-1));
+        }
+        list.add(root.val());
+        inOrdTrvMinDiff(root.right(),list);
     }
 }
