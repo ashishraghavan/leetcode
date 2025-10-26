@@ -3,6 +3,7 @@ package com.leetcode.medium.tree;
 import com.leetcode.tree.core.TreeNode;
 
 //prob #1302 - deepest leaves sum
+//TODO: check https://algo.monster/liteproblems/1302 for BFS solution to avoid two passes on the tree
 public class DeepestLeavesSum_L1302 {
     static int sum = 0;
     static int max = Integer.MIN_VALUE;
