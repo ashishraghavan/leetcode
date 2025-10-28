@@ -16,6 +16,14 @@ public class ListNode {
         this.val = val; this.next = next;
     }
 
+    public int val() {
+        return this.val;
+    }
+
+    public ListNode next() {
+        return this.next;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -34,5 +42,18 @@ public class ListNode {
     @Override
     public String toString() {
         return val+ " -> ";
+    }
+
+    public void print() {
+        ListNode curr = this;
+        StringBuilder sb = new StringBuilder();
+        while(curr != null) {
+            if(!sb.isEmpty()) {
+                sb.append("->");
+            }
+            sb.append(curr.val);
+            curr = curr.next;
+        }
+        System.out.println(sb);
     }
 }
