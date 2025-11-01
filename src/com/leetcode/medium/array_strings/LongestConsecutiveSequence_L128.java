@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
-//TODO: incorrect solution, runs in O(NlogN) time
+//TODO: incorrect solution, runs in O(NlogN) time, [DP]
 //prob #128 - longest consecutive sequence
 public class LongestConsecutiveSequence_L128 {
     public static void main(String[] args) {
