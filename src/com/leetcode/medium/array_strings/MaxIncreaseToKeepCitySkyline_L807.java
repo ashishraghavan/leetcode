@@ -1,6 +1,7 @@
 package com.leetcode.medium.array_strings;
 
-//TODO: working solution but figure out a less complex way
+//TODO: working solution but figure out a less complex way,
+// check https://copilot.microsoft.com/shares/oXAkS9RSiq4xg31mCF1Ph for a slightly better solution
 //prob #807 - max increase to keep city skyline
 public class MaxIncreaseToKeepCitySkyline_L807 {
     public static void main(String[] args) {
