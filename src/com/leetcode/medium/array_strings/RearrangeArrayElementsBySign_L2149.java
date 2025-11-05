@@ -2,13 +2,13 @@ package com.leetcode.medium.array_strings;
 
 import java.util.Arrays;
 
-//TODO: should optimize!
+//see rearrangeArrayII for optimized solution
 //prob #2149 - rearrange array elements by sign
 public class RearrangeArrayElementsBySign_L2149 {
     public static void main(String[] args) {
         //3,1,-2,-5,2,-4
         //-1.0
-        rearrangeArray(new int[]{-1,-4,-10,2,1,8});
+        rearrangeArrayII(new int[]{-1,-4,-10,2,1,8});
         //System.out.println(Arrays.toString());
     }
 
@@ -51,5 +51,22 @@ public class RearrangeArrayElementsBySign_L2149 {
         int temp = A[a];
         A[a] = A[b];
         A[b] = temp;
+    }
+
+    ////my optimized solution
+    public static int[] rearrangeArrayII(int[] A) {
+        int posCnt = 0,negCnt=1;
+        int[] B = new int[A.length];
+        for (int j : A) {
+            if (j > 0) {
+                B[posCnt] = j;
+                posCnt += 2;
+            } else {
+                B[negCnt] = j;
+                negCnt += 2;
+            }
+        }
+        System.out.println(Arrays.toString(B));
+        return B;
     }
 }
