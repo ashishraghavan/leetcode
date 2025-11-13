@@ -1,6 +1,7 @@
 package com.leetcode.medium.array_strings;
 
-//TODO: [revise][2-pointer]
+//TODO: [revise][2-pointer], used https://copilot.microsoft.com/shares/WqberXFMeMnMJrzvkN1z4
+// for generating test cases
 //prob #11 - container with most water
 public class ContainerWithMostWater_L11 {
     public static void main(String[] args) {
