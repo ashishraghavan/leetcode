@@ -2,7 +2,7 @@ package com.leetcode.medium.array_strings;
 
 import java.util.*;
 
-//TODO: go through optimized solution
+//TODO: can also be done by bucket sort (see https://copilot.microsoft.com/shares/tDFGg4R4Jch752HnZtQK9)
 //problem #451 - sort characters by frequency
 public class SortCharactersByFrequency_L451 {
     public static void main(String[] args) {
@@ -16,7 +16,8 @@ public class SortCharactersByFrequency_L451 {
     public static String frequencySort(String s) {
         Map<Character,Integer> mp = new HashMap<>();
         for(int i=0;i<s.length();i++) {
-            mp.merge(s.charAt(i),1,Integer::sum);
+            //mp.merge(s.charAt(i),1,Integer::sum);
+            mp.put(s.charAt(i),mp.getOrDefault(s.charAt(i),0)+1);
         }
         //{a=1, A=1, b=2}
         System.out.println(mp);
