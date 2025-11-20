@@ -8,7 +8,7 @@ public class ProductOfArrayExceptSelf_L238 {
     public static void main(String[] args) {
         //1,2,3,4
         //-1,1,0,-3,3
-        System.out.println(Arrays.toString(productExceptSelfII(new int[]{1,2,3,4})));
+        System.out.println(Arrays.toString(productExceptSelfIII(new int[]{1,2,3,4})));
     }
 
     //1,2,3,4
@@ -56,5 +56,54 @@ public class ProductOfArrayExceptSelf_L238 {
             product*=nums[i];
         }
         return res;
+    }
+
+
+    //-1,1,0,-3,3
+    //1,2,3,4
+    //pf[] = [1,1,2,6]
+    //sf[] = [24,12,4,1]
+    //[] = [24,12,8,6]
+    public static int[] productExceptSelfIII(int[] nums) {
+        int[] pfProduct = new int[nums.length];
+        int[] sfProduct = new int[nums.length];
+        int[] resProduct = new int[nums.length];
+        //pfProduct[0]=1;
+        //sfProduct[sfProduct.length-1]=1;
+        int product = 1;
+        for(int i=0;i<nums.length;i++) {
+            pfProduct[i] = product;
+            product *= nums[i];
+        }
+        product = 1;
+        for(int i=nums.length-1;i>=0;i--) {
+            sfProduct[i] = product;
+            product *= nums[i];
+        }
+        System.out.println(Arrays.toString(pfProduct));
+        System.out.println(Arrays.toString(sfProduct));
+        for(int i=0;i<resProduct.length;i++) {
+            resProduct[i] = pfProduct[i] * sfProduct[i];
+        }
+        return resProduct;
+    }
+
+    //1,2,3,4
+    //res = [1,1,2,6] -> [1*2*3*4,1*3*4,2*1*4,6*1], i=3, rprd=1, i=2, rprd*=nums[i+1]=4,  i=1, rprd*=nums[i+1]=12,  i=0, rprd*=nums[i+1]=24
+    public static int[] productExceptSelfIV(int[] nums) {
+        int[] resProduct = new int[nums.length];
+        int product = 1;
+        for(int i=0;i<nums.length;i++) {
+            resProduct[i] = product;
+            product *= nums[i];
+        }
+        System.out.println(Arrays.toString(resProduct));
+        product = 1;
+        for(int i=nums.length-2;i>=0;i--) {
+            product *= nums[i+1];
+            resProduct[i] *= product;
+        }
+        System.out.println(Arrays.toString(resProduct));
+        return resProduct;
     }
 }
