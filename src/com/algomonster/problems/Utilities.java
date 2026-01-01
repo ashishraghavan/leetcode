@@ -2,6 +2,7 @@ package com.algomonster.problems;
 
 import com.algomonster.problems.twopointers.Node;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.function.Function;
 
@@ -28,5 +29,14 @@ public class Utilities {
         com.algomonster.problems.depthfirstsearch.Node<T> left = buildTree(iter, f);
         com.algomonster.problems.depthfirstsearch.Node<T> right = buildTree(iter, f);
         return new com.algomonster.problems.depthfirstsearch.Node<T>(f.apply(val), left, right);
+    }
+
+    public static <T> com.algomonster.problems.backtracking.Node<T> buildTreeBT(Iterator<String> iter, Function<String, T> f) {
+        String val = iter.next();
+        int num = Integer.parseInt(iter.next());
+        ArrayList<com.algomonster.problems.backtracking.Node<T>> children = new ArrayList<>();
+        for (int i = 0; i < num; i++)
+            children.add(buildTreeBT(iter, f));
+        return new com.algomonster.problems.backtracking.Node<T>(f.apply(val), children);
     }
 }
