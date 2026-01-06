@@ -11,7 +11,7 @@ public class MaximumTwinSumOfLinkedList {
         //7->2->6->3->8->5
         //ListNode head = new ListNode(5,new ListNode(4,new ListNode(2,new ListNode(1,null))));
         ListNode head = new ListNode(7,new ListNode(2,new ListNode(6,new ListNode(3,new ListNode(8,new ListNode(5,null))))));
-        System.out.println(pairSum(head));
+        System.out.println(pairSumII(head));
     }
 
     //5->4->2->1
@@ -32,10 +32,7 @@ public class MaximumTwinSumOfLinkedList {
             fast = fast.next.next;
             slow = slow.next;
         }
-        System.out.println("sum list = "+res);
-        if(slow != null) {
-            System.out.println("slow.val = "+slow.val);
-        }
+
         int cnt = res.size()-1;
         while(slow != null && cnt >= 0) {
             int temp = res.get(cnt)+slow.val;
@@ -45,5 +42,35 @@ public class MaximumTwinSumOfLinkedList {
             cnt--;
         }
         return mx;
+    }
+
+    //7->2->6->3->8->5
+    public static int pairSumII(ListNode head) {
+        ListNode fast = head,slow = head;
+        int mx = Integer.MIN_VALUE;
+        while(fast !=null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        ListNode head2 = reverse(slow);
+        ListNode head1 = head;
+        while(head2 != null) {
+            mx = Math.max(mx,head2.val + head1.val);
+            head2 = head2.next;
+            head1 = head1.next;
+        }
+        return mx;
+    }
+
+    //3->8->5
+    public static ListNode reverse(ListNode head) {
+        ListNode prev = null,curr=head;
+        while(curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
     }
 }
