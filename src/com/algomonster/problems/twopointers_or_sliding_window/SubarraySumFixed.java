@@ -1,8 +1,6 @@
-package com.algomonster.problems.twopointers;
+package com.algomonster.problems.twopointers_or_sliding_window;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class SubarraySumFixed {

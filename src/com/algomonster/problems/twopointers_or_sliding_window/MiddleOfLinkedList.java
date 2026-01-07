@@ -1,4 +1,4 @@
-package com.algomonster.problems.twopointers;
+package com.algomonster.problems.twopointers_or_sliding_window;
 
 public class MiddleOfLinkedList {
     public static void main(String[] args) {

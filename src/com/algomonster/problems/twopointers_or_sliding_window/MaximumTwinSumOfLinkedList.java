@@ -1,4 +1,4 @@
-package com.algomonster.problems.twopointers;
+package com.algomonster.problems.twopointers_or_sliding_window;
 
 import com.leetcode.linkedlist.ListNode;
 
