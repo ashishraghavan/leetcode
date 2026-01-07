@@ -3,6 +3,9 @@ package com.algomonster.problems.twopointers;
 import java.util.Arrays;
 import java.util.List;
 
+//TODO: [revise]
+// refer C:\Users\ashish\OneDrive\Documents\dev-notes\java-class-template - flexible size sliding window template - shortest
+// for template used to solve this problem
 public class SubarraySumLongest {
     public static void main(String[] args) {
         //1, 6, 3, 1, 2, 4, 5 | 10

@@ -1,5 +1,7 @@
 package com.algomonster.problems.twopointers;
 
+import com.algomonster.problems.Utilities;
+
 //TODO: good problem, definitely [revise], check https://algo.monster/problems/remove_nth_from_end for detailed explanation
 public class RemoveNthNodeFromEndOfLinkedList {
     public static void main(String[] args) {

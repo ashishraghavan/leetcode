@@ -14,7 +14,7 @@ public class PartitionArrayAccordingToGivenPivot {
         //[5,5,5,5,5,5,5],5
         //[5,4,3,2,1],3
         //
-        System.out.println(Arrays.toString(pivotArray(new int[]{5,4,3,2,1},3)));
+        System.out.println(Arrays.toString(pivotArrayII(new int[]{9,12,5,10,14,3,10},10)));
     }
 
     //[9,12,5,10,14,3,10] -> [9,5,3,10,10,12,14]
@@ -39,5 +39,39 @@ public class PartitionArrayAccordingToGivenPivot {
             }
         }
         return B;
+    }
+
+    //[9,12,5,10,14,3,10] -> [9,5,3,10,10,12,14]
+    //9,5,12,10,14,3,10
+    //9,5,3,10,14,12,10
+    //9,5,3,10,10,12,14
+
+    //[9,12,5,10,14,3,10]
+    //[9,3,5,10,14,12,10]
+    public static int[] pivotArrayII(int[] A, int p) {
+        int pIdx=-1;
+        for(int first=0,last=0;last<A.length;last++) {
+            if(A[first] == p || A[last] == p){
+//                pIdx=first;
+//                first++;
+                if(A[first]==p)first++;
+                else continue;
+            }
+            if(A[first] < p) {
+                first++;
+            } else {
+                if(A[last] < p) {
+                    swap(A,first,last);
+                    first++;
+                }
+            }
+        }
+        return A;
+    }
+
+    public static void swap(int[] A,int i,int j) {
+        int temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
     }
 }
