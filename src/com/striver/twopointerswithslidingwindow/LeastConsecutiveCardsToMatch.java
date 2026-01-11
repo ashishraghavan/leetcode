@@ -1,4 +1,4 @@
-package com.algomonster.problems.twopointers_or_sliding_window;
+package com.striver.twopointerswithslidingwindow;
 
 import java.util.Arrays;
 import java.util.HashSet;
