@@ -1,6 +1,6 @@
 package com.algomonster.problems;
 
-import com.algomonster.problems.twopointers.Node;
+import com.algomonster.problems.twopointers_or_sliding_window.Node;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,5 +38,13 @@ public class Utilities {
         for (int i = 0; i < num; i++)
             children.add(buildTreeBT(iter, f));
         return new com.algomonster.problems.backtracking.Node<T>(f.apply(val), children);
+    }
+
+    public static <T> com.algomonster.problems.bfs.Node<T> buildTreeBfs(Iterator<String> iter, Function<String, T> f) {
+        String val = iter.next();
+        if (val.equals("x")) return null;
+        com.algomonster.problems.bfs.Node<T> left = buildTreeBfs(iter, f);
+        com.algomonster.problems.bfs.Node<T> right = buildTreeBfs(iter, f);
+        return new com.algomonster.problems.bfs.Node<T>(f.apply(val), left, right);
     }
 }
