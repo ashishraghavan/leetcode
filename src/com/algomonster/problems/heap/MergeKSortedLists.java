@@ -39,7 +39,7 @@ public class MergeKSortedLists {
     //[1, 3, 5],[2,4,6],[7,10]
     //optimized version after referring solution!
     public static List<Integer> mergeKSortedListsII(List<List<Integer>> lists) {
-        PriorityQueue<Element> pq = new PriorityQueue<>(elementComparator);
+        PriorityQueue<Element> pq = new PriorityQueue<>(lists.size(),elementComparator);
         List<Integer> res = new ArrayList<>();
         for(List<Integer> list : lists) {
             Element element = new Element(list,0);
