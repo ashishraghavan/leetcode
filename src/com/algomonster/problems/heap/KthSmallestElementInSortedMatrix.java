@@ -2,7 +2,8 @@ package com.algomonster.problems.heap;
 
 import java.util.*;
 
-//TODO: https://algo.monster/problems/kth_smallest_element_in_a_sorted_matrix, solution similar to merge k sorted lists under section priority queue
+//TODO: https://algo.monster/problems/kth_smallest_element_in_a_sorted_matrix,
+// solution similar to merge k sorted lists under section priority queue. CHECK LAST SOLUTION IN THE GIVEN LINK FOR MOST OPTIMIZED SOLUTION
 public class KthSmallestElementInSortedMatrix {
     public static void main(String[] args) {
         //[ 1,  5,  9], [10, 11, 13], [12, 13, 15]
