@@ -24,14 +24,9 @@ public class MergeIntervals {
                 res.add(interval);
             } else {
                 List<Integer> lastInterval = res.get(res.size()-1);
+                //if condition takes care of case when there is no overlap
                 //max(interval.get(0),lastInterval.get(0)),min(interval.get(1),lastInterval.get(1))
-                if(overlap(interval,lastInterval)) {
-                    //set lastInterval y co-ordinate = y co-ordinate of interval
-                    //lastInterval.set(0,Math.min(lastInterval.get(0),interval.get(0)));
-                    lastInterval.set(1,Math.max(lastInterval.get(1),interval.get(1)));
-                } else {
-                    res.add(interval);
-                }
+                lastInterval.set(1,Math.max(lastInterval.get(1),interval.get(1)));
             }
         }
         return res;
