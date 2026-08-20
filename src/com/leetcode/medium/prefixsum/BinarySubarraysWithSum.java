@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 //#930
+//Let's say your target goal is 2.
+//Set A (atMost(2)) calculates every single subarray whose sum is 0, 1, or 2.
+//Set B (atMost(1)) calculates every single subarray whose sum is 0 or 1.
+//If you take Set A and completely remove Set B, what is left over? Only the subarrays that sum to exactly 2.
 public class BinarySubarraysWithSum {
     public static void main(String[] args) {
         //1,0,1,0,1
