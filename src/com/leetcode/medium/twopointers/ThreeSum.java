@@ -68,9 +68,11 @@ public class ThreeSum {
             while(y<z) {
                 if(A[y]+A[z] == target) {
                     l.add(Arrays.asList(A[i],A[y],A[z]));
+                    //After finding triplet & adding to result we skip duplicate value pointed to by left pointer
                     while(y < z && A[y]==A[y+1]) {
                         y++;
                     }
+                    //After finding triplet & adding to result we skip duplicate value pointed to by right pointer
                     while(y < z && A[z]==A[z-1]) {
                         z--;
                     }
