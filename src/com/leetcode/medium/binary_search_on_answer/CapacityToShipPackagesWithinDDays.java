@@ -12,8 +12,8 @@ public class CapacityToShipPackagesWithinDDays {
         //5, 5, 5, 5|2
         //5, 5, 5, 5, 5|2
         //1, 1, 1, 100, 1, 1|3
-        int[] weights = new int[]{1, 2, 3, 1, 1};
-        int days = 4;
+        int[] weights = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int days = 5;
         System.out.println(shipWithinDays(weights,days));
     }
 
@@ -49,6 +49,7 @@ public class CapacityToShipPackagesWithinDDays {
             }
             currWeight += weight;
         }
+        if(currWeight > 0)totalDays++;
         return totalDays <= days;
     }
 }
