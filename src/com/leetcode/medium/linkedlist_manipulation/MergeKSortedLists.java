@@ -39,17 +39,14 @@ public class MergeKSortedLists {
         }
         while(!pq.isEmpty()) {
             ListNode node = pq.poll();
+            if(node.next() != null) {
+                pq.offer(node.next());
+            }
             if(origHead == null) {
                 origHead = node;
-                if(node.next() != null) {
-                    pq.offer(node.next());
-                }
                 origHead.setNext(null);
                 prev = origHead;
             } else {
-                if(node.next() != null) {
-                    pq.offer(node.next());
-                }
                 node.setNext(null);
                 prev.setNext(node);
                 prev = node;
